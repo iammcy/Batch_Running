@@ -1,12 +1,12 @@
 #!/bin/sh
 # chmod +x train.sh
-# nohup bash train.sh > train.out 2>&1 &
-# tail -100f train.out
 
 num_exp=5
 attack=("none" "target" "notarget")
 
 # 模式1：后台串行执行
+# nohup bash train.sh > train.out 2>&1 &
+# tail -100f train.out
 for att in ${attack[@]}
 do
     for lr in $(seq 1 3)
@@ -20,6 +20,8 @@ do
 done
 
 # 模式2：后台多进程执行
+# bash train.sh > train.out 2>&1 &
+# tail -100f train.out
 # for lr in $(seq 1 3)
 # do
 #     # lr=[0.01,0.02,0.03]
